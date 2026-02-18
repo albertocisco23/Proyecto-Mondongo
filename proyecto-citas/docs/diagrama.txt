@@ -1,0 +1,30 @@
+                     ┌─────────────────────┐
+                     │       Usuario        │
+                     └──────────┬──────────┘
+                                │ HTTPS
+                                ▼
+                     ┌─────────────────────┐
+                     │  Application Load   │
+                     │      Balancer       │
+                     └──────────┬──────────┘
+                                │
+                                ▼
+                     ┌─────────────────────┐
+                     │   ECS Fargate       │
+                     │   FastAPI Service   │
+                     └──────────┬──────────┘
+                                │
+                                ▼
+                     ┌─────────────────────┐
+                     │     RDS PostgreSQL  │
+                     └─────────────────────┘
+
+Build & Deploy:
+Docker -> ECR -> ECS
+
+Infraestructura:
+Terraform (VPC, ALB, ECS, RDS)
+CDK (Secrets + Dashboard/Alarm)
+
+Drift:
+Cambio manual -> Terraform detecta -> Terraform corrige
