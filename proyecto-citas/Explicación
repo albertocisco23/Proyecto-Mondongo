@@ -1,11 +1,18 @@
 El contenedor Postgres se usó para desarrollo local; en producción se usa RDS por ser servicio gestionado (backups, alta disponibilidad, mantenimiento).
 
 Parar el contenedor:
+
 sudo docker compose stop
 
 Arrancar el contenedor:
+
 cd ~/Escritorio/Victor/ADMAN/proyecto-citas/app
 
 sudo docker compose start
 
 sudo docker compose up -d
+
+Abrir en el navegador:
+
+http://localhost:8000/docs
+http://localhost:8000/health
