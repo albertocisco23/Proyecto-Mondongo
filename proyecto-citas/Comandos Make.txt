@@ -1,0 +1,38 @@
+==============================
+PORTAL CITAS - COMANDOS (MAKE)
+==============================
+
+FLUJO NORMAL (levantar -> comprobar -> apagar)
+
+1) Levantar infra (init + apply)
+   make up
+
+2) Comprobar que todo está OK
+   make status      (ECS + /health)
+   make urls        (URLs del ALB)
+   make psql-check  (SELECT COUNT(*) en BD)
+
+3) Apagar / eliminar TODO (destroy)
+   make down
+
+
+COMANDOS ÚTILES (según necesidad)
+
+- Tests rápidos (script smoke_test.sh):
+  make test
+
+- Ver salidas/outputs de Terraform:
+  make outputs
+
+- Ver comando SSH al bastion:
+  make ssh
+
+- Ver comando completo para entrar a psql (vía bastion):
+  make psql
+
+
+NOTAS IMPORTANTES
+
+- make up  => crea recursos (genera costes mientras esté activo)
+- make down => borra TODA la infra gestionada por Terraform
+- Si /health da 503 justo tras el apply: espera 1-3 min y repite `make status`
